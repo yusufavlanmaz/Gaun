@@ -38,11 +38,11 @@ function Router(){
   <NavigationContainer>
     <Stack.Navigator>
     {
-      !userSession ? 
+      !userSession ? (
       <Stack.Screen name='MemberSignScreen' component={MemberSign}
       options={{
         headerShown:false,
-      }} />
+      }} />)
       : 
       <Stack.Screen
       name='HomePage' component={HomePage}

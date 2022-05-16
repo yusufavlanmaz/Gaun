@@ -93,13 +93,13 @@ async function handleFormSubmit(formValues){
                        <Input 
                         onType={handleChange('usermail')}
                         value={values.usermail}
-                        placeholder="Öğrenci numarası"
+                        placeholder="Kullanıcı adı"
                         
                          />
                          <Input 
                         onType={handleChange('username')}
                         value={values.username}
-                        placeholder="Kullanıcı adı"
+                        placeholder="Öğrenci Numarası"
                          />
                         <Input
                          onType={handleChange('password')}
