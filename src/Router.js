@@ -13,6 +13,7 @@ import ObsPager from './Pages/ObsPage';
 import MemberSignUp from './Pages/MemberSignup';
 import auth from '@react-native-firebase/auth';
 import Icon from  'react-native-vector-icons/MaterialCommunityIcons';
+import LessonPage from './Pages/LessonPage';
 const Stack = createStackNavigator();
 
 function Router(){
@@ -98,6 +99,15 @@ function Router(){
     />
     <Stack.Screen
     name='ObsPage' component={ObsPager}
+      options={{
+          headerShown:false,
+          
+
+    }} 
+    
+    />
+    <Stack.Screen
+    name='LessonScreen' component={LessonPage}
       options={{
           headerShown:false,
           

@@ -35,19 +35,19 @@ function HomePage({navigation,formValues,selectedTeam,users}){
             
             <TouchableOpacity style={styles.chat} onPress={ChatOnPage}>
                 <LinearGradient  style={styles.chat_back} start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}  colors={['#373B44','#4286f4','#373B44']} >    
-                    <Image source={require('../../assets/messenger.png')} style={styles.chat_ımage} />
+                    <Image source={require('../../assets/chat.png')} style={styles.chat_ımages} />
                     <Text style={styles.chats_text}>Bilgisayar Prog. (İÖ) </Text>
                 </LinearGradient>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.chat2}>
+            <TouchableOpacity style={styles.chat2} onPress={()=>{navigation.navigate('LessonScreen')}} >
                 <LinearGradient  style={styles.chat_back} start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}  colors={['#373B44','#4286f4','#373B44']}>
-                    <Image source={require('../../assets/dersprog.png')} style={styles.chat_ımage} />
+                    <Image source={require('../../assets/lesson.png')} style={styles.chat_ımage} />
                     <Text style={styles.chats_text2}>Dersler</Text>
                 </LinearGradient>
             </TouchableOpacity>
             <TouchableOpacity style={styles.chat3} onPress={ObsOnPage}>
                 <LinearGradient  style={styles.chat_back} start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}  colors={['#373B44','#4286f4','#373B44']}>
-                    <Image source={require('../../assets/dersprog.png')} style={styles.chat_ımage} />
+                    <Image source={require('../../assets/school.png')} style={styles.chat_ımage} />
                     <Text style={styles.chats_text2}>OBS</Text>
                 </LinearGradient>
             </TouchableOpacity>
@@ -114,6 +114,11 @@ const styles = StyleSheet.create({
         width:100,
         height:100,
         
+    },
+    chat_ımages:{
+        marginTop:10,
+        width:100,
+        height:100,
     },
     chat_back:{
         height:150,
