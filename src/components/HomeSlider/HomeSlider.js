@@ -1,13 +1,16 @@
 import React from 'react';
-import {SafeAreaView,Text,FlatList,View,ImageBackground} from 'react-native'
+import {SafeAreaView,Text,View,ImageBackground} from 'react-native'
 import styles from './HomeSlider.style';
+
+const image = {uri:'https://www.gantep.edu.tr/aday/images/gaun-1.jpg'}
 const HomeSlider =() =>{
     return(
             <SafeAreaView style={styles.container}>
 
                 <View style={styles.inner_container} >
-                      <Text>Bu uygulama React-Native ile geliştirilmiştir</Text>  
-                      
+                        <ImageBackground style={styles.first_image}  source={image}>
+                      <Text style={styles.first}>Bu uygulama React-Native ile geliştirilmiştir</Text>  
+                        </ImageBackground>                      
                 </View>  
 
 

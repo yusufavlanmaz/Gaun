@@ -11,6 +11,10 @@ export default StyleSheet.create({
         paddingLeft:0,
         flexDirection:'row',
     },
+    first:{
+        alignSelf:'center',
+        textAlign:'center',
+    },
     inner_container:{
         backgroundColor:'lightgray',
         width:Dimensions.get('screen').width/1.03,
@@ -19,6 +23,11 @@ export default StyleSheet.create({
         marginLeft:6,
         borderRadius:10,
         
+    },
+    first_image:{
+        flex:1,
+        height:'100%',
+        borderRadius:10,
     },
     dersler:{
         marginLeft:18,

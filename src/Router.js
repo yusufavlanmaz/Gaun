@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Welcome from './Pages/Welcome';
 import MemberSign from './Pages/MemberLogin';
 import MemberSignTeacher from './Pages/MemberSignTeacher';
-import MemberSubmit from './Pages/MemberSubmit';
+//import MemberSubmit from './Pages/MemberSubmit';
 import FlashMessage from 'react-native-flash-message';
 import HomePage from './Pages/HomePage';
 import MessagesIo from './Pages/Messages';
@@ -23,16 +23,7 @@ function Router(){
     });
   },[]);
 
-  const AuthStack = ()=>{
-    return(
-      <Stack.Navigator>
-        <Stack.Screen name='MemberSignScreen' component={MemberSign}
-      options={{
-        headerShown:false,
-      }} />
-      </Stack.Navigator>
-    )
-  }
+ 
   
   return(
   <NavigationContainer>
