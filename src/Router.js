@@ -13,10 +13,13 @@ import ObsPager from './Pages/ObsPage';
 import MemberSignUp from './Pages/MemberSignup';
 import auth from '@react-native-firebase/auth';
 import Icon from  'react-native-vector-icons/MaterialCommunityIcons';
+import UzemPage from './Pages/UzemPage';
 import LessonPage from './Pages/LessonPage';
+
 const Stack = createStackNavigator();
 
 function Router(){
+ 
   const [userSession,setUserSession] = React.useState();
   React.useEffect(()=> {
     auth().onAuthStateChanged((user)=>{
@@ -50,29 +53,19 @@ function Router(){
            color='white'
            onPress={()=> auth().signOut() } /> 
           )
-
       }} 
-      
       />
     }
+     
     
-      <Stack.Screen name='WelcomeScreen' component={Welcome} 
-        options={{
-        headerShown:false,
-      }} />
-      
-      <Stack.Screen
-      name='MembemSignTeacher' component={MemberSignTeacher}
-      options={{
-      headerShown:false,
-    }} 
     
-    />
+   
+    
     <Stack.Screen
     //name='SignPage' component={MemberSubmit}
     //  options={{
     //  headerShown:false,
-   // }} 
+    // }} 
       name='SignPage' component={MemberSignUp}
       options={{
         headerShown:false,
@@ -93,27 +86,25 @@ function Router(){
            headerStyle:{
            backgroundColor:'#373B44'
          }
-
     }} 
-    
     />
     <Stack.Screen
     name='ObsPage' component={ObsPager}
       options={{
           headerShown:false,
-          
-
     }} 
-    
+    />
+    <Stack.Screen
+    name='UzemPage' component={UzemPage}
+      options={{
+          headerShown:false, 
+    }} 
     />
     <Stack.Screen
     name='LessonScreen' component={LessonPage}
       options={{
           headerShown:false,
-          
-
     }} 
-    
     />
     </Stack.Navigator>
     

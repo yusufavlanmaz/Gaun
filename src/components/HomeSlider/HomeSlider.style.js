@@ -16,7 +16,7 @@ export default StyleSheet.create({
         textAlign:'center',
     },
     inner_container:{
-        backgroundColor:'lightgray',
+        
         width:Dimensions.get('screen').width/1.03,
         height:Dimensions.get('screen').height/3.5,
         alignSelf:'center',
@@ -27,16 +27,18 @@ export default StyleSheet.create({
     first_image:{
         flex:1,
         height:'100%',
-        borderRadius:10,
+        borderRadius:100,
     },
     dersler:{
-        marginLeft:18,
+        
+        
+        marginLeft:1,
         borderWidth:1,
-        alignSelf:'flex-start',
         flexDirection:'row',
         padding:5,
         marginTop:8,
         borderColor:'#4286f4'
+       
         
     },
     headerText:{
@@ -48,9 +50,16 @@ export default StyleSheet.create({
     },
     derslerText1:{
         paddingLeft:10,
+        color:'white',
+        flex:1,
     },
     derslerText2:{
-        paddingLeft:150,
+        color:'white',
+        margin:0,
+        padding:0,
+        alignItems:'flex-end',
+        textAlign:'right',
+        alignContent:'flex-end'
     },
 
    

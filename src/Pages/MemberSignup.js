@@ -1,19 +1,29 @@
 import React,{useState} from 'react';
-import {SafeAreaView,Text,View,StyleSheet,TouchableOpacity,Image} from 'react-native';
+import {Text,View,StyleSheet,TouchableOpacity,Pressable} from 'react-native';
 import Input from '../components/Input/input';
 //import ButtonOpacity from '../components/Button/Button';
 import LinearGradient from 'react-native-linear-gradient';
 import auth, { firebase } from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import {Formik} from 'formik';
 import {showMessage} from 'react-native-flash-message';
 import authErrorMessageparser from '../../utils/authErrorMessageparser';
-import SelectBox from 'react-native-multi-selectbox'
+
 
 
 
 const MemberSignUp =({navigation})=>{
   function handleLogin(){
     navigation.goBack();
+}
+
+const [bırıncıog,setBırıncıOg] = React.useState('');
+function setBo(){
+setBırıncıOg('Birinciöğretim')
+}
+const [ıkıncıog,setIkıncıOg] = React.useState('');
+function setIo(){
+  setIkıncıOg('İkinciöğretim')
 }
   
 const initialFormValues = {
@@ -30,7 +40,7 @@ async function handleFormSubmit(formValues){
           type:'danger',
       })
       return;
-  }
+  } 
   
  try {
   
@@ -43,10 +53,12 @@ async function handleFormSubmit(formValues){
      
     firebase.database().ref('users/'+ res.user.uid).set({
       username:formValues.username,
-      userteam:formValues.selectedTeam
+      userteamI:bırıncıog,
+      userteam:ıkıncıog,
      })
     
   })
+  
 
    showMessage({
        message:'kullanıcı oluştutruldu',
@@ -77,7 +89,7 @@ async function handleFormSubmit(formValues){
       ]
 
       const [selectedTeam, setSelectedTeam] = useState('');
-      
+    
    
     return(
 
@@ -99,7 +111,7 @@ async function handleFormSubmit(formValues){
                          <Input 
                         onType={handleChange('username')}
                         value={values.username}
-                        placeholder="Öğrenci Numarası"
+                        placeholder="Ad ve Soyad"
                          />
                         <Input
                          onType={handleChange('password')}
@@ -111,27 +123,20 @@ async function handleFormSubmit(formValues){
                         value={values.repassword}
                         placeholder="Şifre tekrar"
                         isSecure />
-                          <SelectBox
-                                label="Bölümünüzü Seçiniz"
-                                options={K_OPTIONS}
-                                value={selectedTeam}
-                                onChange={onChange()}
-                                hideInputFilter={true}
-                                inputPlaceholder=""
-                                backgroundColor='white'
-                                optionsLabelStyle={{
-                                  
-                                  color:'white'
-                                }}
-                                selectedItemStyle	={{
-                                  color:'white'
-                                }}
-                                labelStyle={{
-                                  color:'white'
-                                }}
-                               
-                              />
                             
+                              
+                              <View style={styles.lıttleButton}>
+                              <TouchableOpacity style={styles.ButtonB} onPress={setBo}>
+                              <LinearGradient style={styles.ButtonB} start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 2.7}}  colors={['#373B44','#4286f4','#373B44']}>
+                                  <Text style={styles.button_textB} >Birinci öğretim</Text>
+                              </LinearGradient>
+                              </TouchableOpacity>
+                              <TouchableOpacity style={styles.ButtonI} onPress={setIo}>
+                              <LinearGradient style={styles.ButtonI} start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 2.7}}  colors={['#373B44','#4286f4','#373B44']}>
+                                  <Text style={styles.button_textI} >İkinci öğretim</Text>
+                              </LinearGradient>
+                              </TouchableOpacity>
+                              </View>
 
                     <TouchableOpacity style={styles.button_Sign} onPress={handleSubmit}>
                         <LinearGradient style={styles.button_Sign2} start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 2.7}}  colors={['#373B44','#4286f4','#373B44']}> 
@@ -155,8 +160,9 @@ async function handleFormSubmit(formValues){
      
     </View>
     </LinearGradient>
-    )
-    
+    )   
+
+
       function onChange() {
         return (val) => setSelectedTeam(val)
       }
@@ -166,6 +172,33 @@ const styles = StyleSheet.create({
   container:{
       backgroundColor:'gray',
       flex:1,
+  },
+  lıttleButton:{
+    flexDirection:'row',
+  },
+  ButtonB:{
+  //backgroundColor:this.state.backgroundColor,
+    width:120,
+    height:50,
+    borderRadius:10,
+    alignItems:'center',
+    marginLeft:11,
+    
+  },
+  ButtonI:{
+    width:120,
+    height:50,
+    borderRadius:10,
+    alignItems:'center',
+    marginLeft:40,
+  },
+  button_textI:{
+    color:'white',
+    paddingTop:15,
+  },
+  button_textB:{
+    paddingTop:15,
+    color:'white'
   },
   input_box:{
       marginTop:50,
